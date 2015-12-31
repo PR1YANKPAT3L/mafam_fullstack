@@ -1,0 +1,356 @@
+@import '_base/colors';
+@import '_base/animate';
+@import '_base/fonts';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "futura", sans-serif;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: $background-color;
+}
+
+#react-root {
+	width: 100%;
+	height: 100%;
+}
+
+.MainLayout {
+	width: 100%;
+	height: 100%;
+	@extend .backgroundImage;
+}
+
+.FullWrapper {
+	width: 100%;
+	height: calc(100% - 180px);
+}
+
+.login-container,
+.register-container {
+	position: absolute;
+	width: 400px;
+	height: 500px;
+	background: $white-color;
+  	top: 50%;
+	left: 50%;
+	border-radius: 5px;
+	margin-left: -200px;
+	margin-top: -250px;
+	-webkit-animation: fadeUp 400ms cubic-bezier(.5,.2,.3,1);
+    animation: fadeUp 400ms cubic-bezier(.5,.2,.3,1);
+    @extend .slideInUp;
+
+	.LoginForm,
+	.RegisterForm {
+		width: 100%;
+		padding: 20px;
+
+		input,
+		button {
+			width: 100%;
+			margin: 20px auto;
+			display: block;
+		}
+
+		input {
+			padding: 10px;
+			outline: none;
+			border: 0;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+			font-size: 17px;
+		}
+
+		button {
+			padding: 10px;
+			text-transform: uppercase;
+			font-size: 17px;
+			letter-spacing: 1px;
+			border-radius: 3px;
+			box-shadow: none;
+			text-shadow: none;
+			outline: none;
+			border: 0;
+			cursor: pointer;
+			background-color: $button-background-color;
+			color: $white-color;
+			@extend .transition;
+		}
+
+		button:hover {
+			background-color: darken($button-background-color, 5%);
+		}
+	}
+
+	.LoginHeader,
+	.RegisterHeader {
+		height: 200px;
+		width: 100%;
+		background: url('https://d13yacurqjgara.cloudfront.net/users/108482/screenshots/1355879/attachments/193117/Space-Desktop.jpg') no-repeat center left;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		text-align: center;
+		line-height: 200px;
+		font-family: "futura", sans-serif;
+		font-weight: 300;
+		color: $white-color;
+		text-transform: uppercase;
+
+		h1 {
+			font-weight: 300;
+			letter-spacing: 2px;
+		}
+	}
+
+	.ForgotLink,
+	.LoginError {
+		font-size: 15px;
+		text-decoration: none;
+		color: rgba(0, 0, 0, 0.4);
+		margin: 0 20px;
+	}
+
+	.LoginError {
+		float: right;
+	}
+
+	.Signup-fab,
+	.Login-fab {
+		width: 50px;
+		height: 50px;
+		background-color: $button-background-color;
+		border-radius: 50%;
+		line-height: 50px;
+		position: absolute;
+		margin: -25px 0;
+		right: 20px;
+		cursor: pointer;
+		z-index: 10;
+		@extend .box-shadow;
+		@extend .transition;
+
+		i {
+			color: $white-color;
+		}
+
+		&:hover {
+			background-color: darken($button-background-color, 5%);
+		}
+	}
+}
+
+.DashboardNavBar {
+	position: realtive;
+	width: 100%;
+	height: 60px;
+	padding: 0 10%;
+
+	ul.MainNav {
+		height: 100%;
+		list-style: none;
+		float: left;
+
+		li {
+			float: left;
+			line-height: 60px;
+			padding: 0 20px;
+			text-decoration: none;
+			font-size: 17px;
+
+			a {
+				color: $white-color;
+				text-decoration: none;
+			}
+		}
+	}
+
+	ul.AccountNav {
+		height: 100%;
+		list-style: none;
+		float: right;
+
+		li {
+			float: left;
+			line-height: 60px;
+			padding: 0 10px;
+			font-size: 17px;
+			vertical-align: middle;
+
+			a {
+				color: $white-color;
+				text-decoration: none;
+				vertical-align: middle;
+			}
+
+			.AccountNav-User {
+				vertical-align: middle;
+
+				i {
+					position: relative;
+					top: 3px;
+				}
+			}
+		}
+
+		.AccountNav-DropDown {
+			position: relative;
+			background-color: $white-color;
+			left: -230px;
+			margin: 0 0;
+			display: block !important;
+			width: 340px;
+			max-height: 0;
+			overflow: hidden;
+			z-index: 1040;
+			top: 0;
+			opacity: 0;
+			border-radius: 3px;
+			padding: 20px;
+			-webkit-transition: all 400ms cubic-bezier(.7,0,.3,1);
+    		transition: all 400ms cubic-bezier(.7,0,.3,1);
+
+    		.content {
+    			-webkit-transform: translate3d(0,-20px,0);
+    			transform: translate3d(0,-20px,0);
+    			-webkit-transition: opacity 400ms ease,-webkit-transform 400ms cubic-bezier(.7,0,.3,1);
+    			transition: opacity 400ms ease,transform 400ms cubic-bezier(.7,0,.3,1);
+
+    			.AV {
+    				float: left;
+				    margin: 0 17px 0 0;
+				    position: relative;
+				    background: #f9f9fb;
+				    width: 80px;
+				    height: 80px;
+    			}
+
+    			.Text {
+    				float: left;
+    				width: 180px;
+
+    				h1 {
+    					font-size: 18px;
+					    color: #4b5362;
+					    font-weight: 400;
+					    line-height: 19px;
+					    margin: 0;
+					    overflow: hidden;
+					    text-overflow: ellipsis;
+					    white-space: nowrap;
+    				}
+
+    				p {
+    					color: #8799b6;
+					    font-size: 15px;
+					    overflow: hidden;
+					    text-overflow: ellipsis;
+					    white-space: nowrap;
+					    line-height: 30px;
+    				}
+
+    				a.ViewProfile {
+    					position: relative;
+    					top: -15px;
+    					color: #fff;
+					    font-size: 12px;
+					    font-weight: 600;
+					    text-transform: uppercase;
+					    letter-spacing: .4px;
+					    background: $button-background-color;
+					    border-radius: 2px;
+					    border: 1px solid darken($button-background-color, 5%);
+					    width: 113px;
+					    text-align: center;
+					    padding: 5px 10px;
+					    cursor: pointer;
+					    @extend .transition;
+
+					    &:hover {
+					    	background: darken($button-background-color, 5%);
+					    }
+    				}
+    			}
+
+    			.Nav {
+    				border-top: 1px solid #e8e9ea;
+				    float: left;
+				    clear: both;
+				    width: 100%;
+				    padding: 12px 0 0;
+				    list-style: none;
+
+				    li {
+				    	float: left;
+					    clear: both;
+					    width: 100%;
+					    margin: 0;
+					    padding: 0;
+					    height: 35px;
+
+					    a {
+					    	text-decoration: none;
+					    	text-transform: uppercase;
+					    	color: #585d69;
+					    	font-size: 13px;
+					    }
+				    }
+    			}
+    		}
+		}
+
+		li.DDOpen {
+			.AccountNav-DropDown {
+				box-shadow: 0 0 1px rgba(76,86,103,.25),0 2px 18px rgba(31,37,50,.32);
+    			max-height: 500px;
+    			opacity: 1;
+
+    			.content {
+    				-webkit-transform: translate3d(0,0,0);
+    				transform: translate3d(0,0,0);
+    			}
+			}
+		}
+	}
+}
+
+.DashboardContainer {
+	width: 100%;
+	height: 100%;
+	min-height: 800px;
+	padding: 0;
+	margin: 0;
+
+	.DashboardHeader {
+		width: 100%;
+		height: 120px;
+		padding: 0 10%;
+
+		.DashboardHeader--Title {
+
+			h3 {
+				line-height: 100px;
+				font-weight: 400;
+				font-size: 30px;
+				color: $white-color;
+				margin: 0 20px;
+			}
+		}
+	}
+
+	.DashboardContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		min-height: 800px;
+		background: $dashboard-background-color;
+	}
+}
