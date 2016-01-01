@@ -342,6 +342,10 @@ body {
 				font-size: 30px;
 				color: $white-color;
 				margin: 0 20px;
+
+				&.lo {
+					line-height: 100px;
+				}
 			}
 		}
 

@@ -24,12 +24,16 @@ DashboardNavigation = React.createClass({
 		Meteor.logout();
 		FlowRouter.go('/auth/login');
 	},
+	goToLibrary(e) {
+		e.preventDefault();
+		FlowRouter.go('/dashboard/library');
+	},
 	render() {
 		return (
 			<div className="DashboardNavBar">
 				<ul className="MainNav">
 					<li><a href="" onClick={ this.goToDashboard }>Dashboard</a></li>
-					<li><a href="">Library</a></li>
+					<li><a href="" onClick={ this.goToLibrary }>Library</a></li>
 				</ul>
 				<ul className="AccountNav">
 					<li><a href=""><i className="bi_interface-bell-a"></i></a></li>

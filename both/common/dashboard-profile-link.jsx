@@ -28,6 +28,6 @@ DashboardWrapperSubLink = React.createClass({
 		);	
 	},
 	render() {
-		return FlowRouter.current().route.name == "home" ? null : this.subNavRender();
+		return FlowRouter.current().route.name == "home" || FlowRouter.current().route.name == "library" ? null : this.subNavRender();
 	}
 });

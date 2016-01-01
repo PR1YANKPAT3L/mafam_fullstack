@@ -19,7 +19,8 @@ var DashboardComponents = [
 	"Profile",
 	"Password",
 	"Notification",
-	"Activity"
+	"Activity",
+	"Library"
 ];
 
 // For each route, grab the specific component
