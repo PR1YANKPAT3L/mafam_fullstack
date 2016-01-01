@@ -3,7 +3,7 @@ HomePage = React.createClass({
 		return (
 			<ContentWrapper>
 				<DashboardNavigation />
-				<DashboardWrapper />
+				<DashboardWrapper title="Dashboard" icon="bi_interface-dashboard" />
 			</ContentWrapper>
 		);
 	}

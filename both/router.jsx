@@ -15,7 +15,11 @@ var AuthComponents = [
 ];
 
 var DashboardComponents = [
-	"Home"
+	"Home",
+	"Profile",
+	"Password",
+	"Notification",
+	"Activity"
 ];
 
 // For each route, grab the specific component

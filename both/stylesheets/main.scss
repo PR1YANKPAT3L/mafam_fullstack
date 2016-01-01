@@ -337,11 +337,58 @@ body {
 		.DashboardHeader--Title {
 
 			h3 {
-				line-height: 100px;
+				line-height: 70px;
 				font-weight: 400;
 				font-size: 30px;
 				color: $white-color;
 				margin: 0 20px;
+			}
+		}
+
+		.ProfileNavLinks {
+			width: 100%;
+			height: 50px;
+			z-index: 99;
+
+			ul {
+				width: 100%;
+				height: 100%;
+				list-style: none;
+
+				li {
+					float: left;
+					padding: 0 20px;
+					line-height: 50px;
+					position: relative;
+
+					a {
+						color: #898f9a;
+						text-decoration: none;
+						text-transform: uppercase;
+					}
+
+					&:after {
+						-webkit-transition: -webkit-transform 250ms ease;
+						transition: transform 250ms ease;
+					}
+
+					&.active {
+						a {
+							color: $white-color;
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							clear: both;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 3px;
+							background: $button-background-color;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -353,4 +400,19 @@ body {
 		min-height: 800px;
 		background: $dashboard-background-color;
 	}
+}
+
+.SysNotify {
+	width: 100%;
+	height: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	padding: 0 10%;
+}
+
+.SysNotify--Alert {
+	@extend .SysNotify;
+	background: $notify-alert;
+	color: darken($notify-alert, 50%);
+	border-bottom: 1px solid darken($notify-alert, 20%);
 }

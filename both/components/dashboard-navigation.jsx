@@ -10,11 +10,25 @@ DashboardNavigation = React.createClass({
  		else
 			this.setState({ DDOpen: "DDClose" });
 	},
+	goToDashboard(e) {
+		e.preventDefault();
+		FlowRouter.go('/dashboard/home');
+	},
+	goToProfile(e) {
+		e.preventDefault();
+		FlowRouter.go('/dashboard/profile');
+	},
+
+	goLogout(e) {
+		e.preventDefault();
+		Meteor.logout();
+		FlowRouter.go('/auth/login');
+	},
 	render() {
 		return (
 			<div className="DashboardNavBar">
 				<ul className="MainNav">
-					<li><a href="">Dashboard</a></li>
+					<li><a href="" onClick={ this.goToDashboard }>Dashboard</a></li>
 					<li><a href="">Library</a></li>
 				</ul>
 				<ul className="AccountNav">
@@ -29,13 +43,13 @@ DashboardNavigation = React.createClass({
 								</div>
 								<div className="Text">
 									<h1>priyankpatel</h1>
-									<p>priyankpatel4@hotmail.com</p>
-									<a className="ViewProfile">View Profile</a>
+									<p>{ Meteor.user().emails[0].address }</p>
+									<a className="ViewProfile" onClick={ this.goToProfile }>View Profile</a>
 								</div>
 								<ul className="Nav">
 									<li><a href=""><i className="bi_user-single-round"></i> account settings</a></li>
 									<li><a href=""><i className="bi_setting-notification"></i> notification settings</a></li>
-									<li><a href=""><i className="bi_web-logout"></i> logout</a></li>
+									<li><a href="" onClick={ this.goLogout }><i className="bi_web-logout"></i> logout</a></li>
 								</ul>
 							</div>
 						</div>
